@@ -1,0 +1,23 @@
+{
+  "name": "urlx",
+  "version": "1.0.0",
+  "description": "url to parse and to stringify ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuguzi/urlx.git"
+  },
+  "keywords": [
+    "url",
+    "urlx"
+  ],
+  "author": "puxiao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wuguzi/urlx/issues"
+  },
+  "homepage": "https://github.com/wuguzi/urlx#readme"
+}
