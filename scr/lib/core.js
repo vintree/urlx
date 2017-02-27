@@ -2,7 +2,7 @@
  * @Author: puxiao.wh 
  * @Date: 2017-02-27 16:21:45 
  * @Last Modified by: puxiao.wh
- * @Last Modified time: 2017-02-27 16:29:57
+ * @Last Modified time: 2017-02-27 16:51:53
  */
 
 /**
@@ -29,7 +29,7 @@ function parse(params = '', callback = () => {}) {
  * @param  {Object} data
  * @param  {Boolean} isSearch=true, Whether to add '?'
  */
-function stringify(data, isSearch = true) {
+function stringify(data = {}, isSearch = true) {
     let params = []
     let res =''
     for(let key in data) {
@@ -48,7 +48,7 @@ function stringify(data, isSearch = true) {
  * @param  {String} url=location.href
  * @param  {Object} obj
  */
-function replace(url = location.href, obj) {
+function replace(url = '', obj = {}) {
 	for(let o in obj) {
 		if(obj.hasOwnProperty(o)) {
 			const ixOf = url.indexOf(o)
