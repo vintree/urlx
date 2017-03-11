@@ -1,6 +1,6 @@
 {
   "name": "urlx",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "The core `url` packaged standalone for use with web or nodejs.",
   "main": "index.js",
   "scripts": {
