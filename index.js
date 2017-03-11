@@ -1,2 +1,2 @@
 var core = require('./src/lib/core');
-exports.core = core;
+module.exports = core;

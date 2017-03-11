@@ -2,7 +2,7 @@
  * @Author: puxiao.wh 
  * @Date: 2017-02-27 16:21:45 
  * @Last Modified by: puxiao.wh
- * @Last Modified time: 2017-02-27 16:51:53
+ * @Last Modified time: 2017-03-12 00:03:07
  */
 
 /**
@@ -85,4 +85,4 @@ const urlx = {
 	replace
 }
 
-exports.module = urlx
+module.exports = urlx
