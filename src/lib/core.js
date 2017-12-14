@@ -2,7 +2,7 @@
  * @Author: puxiao.wh 
  * @Date: 2017-02-27 16:21:45 
  * @Last Modified by: puxiao.wh
- * @Last Modified time: 2017-03-12 00:03:07
+ * @Last Modified time: 2017-12-14 19:21:51
  */
 
 /**
@@ -10,12 +10,11 @@
  * @param  {String} params=''
  * @param  {Function} callback=()=>{}
  */
-function parse(params = '', callback = () => {}) {
+function parse(params = '', callback = undefined) {
 	let json = {}
 	if(params.indexOf('?') !== -1) {
 		params = params.substr(1).split('&');
 	}
-	params = params.split('&')
 	for(let i = 0, l = params.length; i < l; i++) {
 		let param = params[i]
 		param = param.split('=')
@@ -24,23 +23,47 @@ function parse(params = '', callback = () => {}) {
 	return json
 }
 
+function parseEncode(params = '', callback = undefined) {
+	return parse(params, (data) => {
+		return encodeURIComponent(data)
+	})
+}
+
+function parseDecode(params = '', callback = undefined) {
+	return parse(params, (data) => {
+		return decodeURIComponent(data)
+	})
+}
+
 /**
  * json => url params
  * @param  {Object} data
  * @param  {Boolean} isSearch=true, Whether to add '?'
  */
-function stringify(data = {}, isSearch = true) {
+function stringify(data = {}, isSearch = true, callback = undefined) {
     let params = []
-    let res =''
+    let res = ''
     for(let key in data) {
         if(data.hasOwnProperty(key)) {
-            params.push(`${key}=${data[key]}`)
+			params.push(callback ? `${key}=${callback(data[key])}` : `${key}=${data[key]}`)
         }
     }
     if(params.length > 0) {
         res = isSearch ? '?' : ''
     }
     return res + params.join('&')
+}
+
+function stringifyEncode(data = {}, isSearch = true) {
+	return stringify(data, isSearch, (data) => {
+		return encodeURIComponent(data)
+	})
+}
+
+function stringifyDecode(data = {}, isSearch = true) {
+	return stringify(data, isSearch, (data) => {
+		return decodeURIComponent(data)
+	})
 }
 
 /**
@@ -80,7 +103,11 @@ function replace(url = '', obj = {}) {
 }
 
 const urlx = {
-    parse,
+	parse,
+	parseEncode,
+	parseDecode,
+	stringifyEncode,
+	stringifyDecode,
     stringify,
 	replace
 }
