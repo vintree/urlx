@@ -2,7 +2,7 @@
  * @Author: puxiao.wh 
  * @Date: 2017-02-27 16:21:45 
  * @Last Modified by: puxiao.wh
- * @Last Modified time: 2017-12-14 19:16:34
+ * @Last Modified time: 2017-12-14 19:21:51
  */
 
 /**
@@ -45,8 +45,7 @@ function stringify(data = {}, isSearch = true, callback = undefined) {
     let res = ''
     for(let key in data) {
         if(data.hasOwnProperty(key)) {
-			const keyValue = `${key}=${data[key]}`
-			params.push(callback ? callback(keyValue) : keyValue)
+			params.push(callback ? `${key}=${callback(data[key])}` : `${key}=${data[key]}`)
         }
     }
     if(params.length > 0) {
