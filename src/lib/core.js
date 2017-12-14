@@ -2,7 +2,7 @@
  * @Author: puxiao.wh 
  * @Date: 2017-02-27 16:21:45 
  * @Last Modified by: puxiao.wh
- * @Last Modified time: 2017-12-14 19:00:39
+ * @Last Modified time: 2017-12-14 19:16:34
  */
 
 /**
@@ -104,7 +104,11 @@ function replace(url = '', obj = {}) {
 }
 
 const urlx = {
-    parse,
+	parse,
+	parseEncode,
+	parseDecode,
+	stringifyEncode,
+	stringifyDecode,
     stringify,
 	replace
 }
