@@ -1,2 +1,3 @@
-var core = require('./src/lib/core');
-module.exports = core;
+var index = require('./dist/index');
+
+module.exports = index;
